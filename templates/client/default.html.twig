@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Клиенты{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Клиенты</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-4">Клиенты</h1>
+
+        <div style="margin-bottom: 2rem;">
+            <a href="{{ path('client.create') }}">Создать клиента</a>
+        </div>
+
+        <ol>
+            {% for client in clients %}
+                {% set link = path('client.update', {id: client.id}) %}
+                <li>
+                    <a href="{{ link }}">{{ client.name }} ({{ client.address }})</a>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock %}
