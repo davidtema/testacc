@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ client }}: проверка возможности выдачи кредита{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('client.default') }}">Клиенты</a></li>
+                <li class="breadcrumb-item active">{{ client }}: проверка возможности выдачи кредита</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-4">{{ client }}: проверка возможности выдачи кредита</h1>
+
+        {{ form_errors(form) }}
+
+        {{ form_start(form) }}
+
+        {{ form_end(form) }}
+
+        {% if result is null %}
+            <p>Результат проверки: нажмите кнопку Проверить</p>
+        {% elseif result.getStatus() is constant('App\\Application\\Status::DECLINED') %}
+            <p class="text-danger" style="color: red">{{ result.getMessage() }}</p>
+        {% elseif result.getStatus() is constant('App\\Application\\Status::APPROVED') %}
+            <div>
+                <p class="text-success" style="color: green">{{ result.getMessage() }}</p>
+                <a href="#">Выдать кредит</a>
+            </div>
+        {% elseif result.getStatus() is constant('App\\Application\\Status::AGREE_CHANGE_RATE') %}
+            <div>
+                <p class="text-warning"
+                   style="color: darkgoldenrod">{{ result.getMessage() }} {{ result.getRate() }}</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

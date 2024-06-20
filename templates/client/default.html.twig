@@ -18,9 +18,18 @@
 
         <ol>
             {% for client in clients %}
-                {% set link = path('client.update', {id: client.id}) %}
                 <li>
-                    <a href="{{ link }}">{{ client.name }} ({{ client.address }})</a>
+                    {{ client }}
+                    <a href="{{ path('client.update', {id: client.id}) }}">Изменить</a>,
+                    <a href="{{ path('credit.form', {clientId: client.id}) }}">Выдать кредит</a>
+                    <div>
+                        Кредиты: <br/>
+                        {% for credit in client.credits %}
+                            - {{ credit }}<br/>
+                        {% else %}
+                            No credits found for this client.
+                        {% endfor %}
+                    </div>
                 </li>
             {% endfor %}
         </ol>

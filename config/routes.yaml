@@ -3,3 +3,9 @@ controllersClient:
         path: ../src/Client/Controller/
         namespace: App\Client\Controller
     type: attribute
+controllersCredit:
+    resource:
+        path: ../src/Credit/Controller/
+        namespace: App\Credit\Controller
+    type: attribute
+

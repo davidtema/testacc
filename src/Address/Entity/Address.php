@@ -71,7 +71,7 @@ class Address
 
     public function __toString(): string
     {
-        return $this->zip . ' / ' . $this->town . ' / ' . $this->state;
+        return $this->zip . ', ' . $this->town . ', ' . $this->state;
     }
 }
 

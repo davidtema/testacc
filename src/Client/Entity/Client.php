@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace App\Client\Entity;
 
+use App\Address\Entity\Address;
 use App\Client\Repository\ClientRepository;
+use App\Credit\Entity\Credit;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\PersistentCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -31,9 +35,12 @@ final class Client
     #[ORM\Column(length: 2, nullable: false)]
     private int $age;
 
-    #[ORM\ManyToOne(targetEntity: \App\Address\Entity\Address::class)]
+    #[ORM\ManyToOne(targetEntity: Address::class)]
     #[ORM\JoinColumn(name: 'address_id')]
-    private \App\Address\Entity\Address $address;
+    private Address $address;
+
+    #[ORM\OneToMany(targetEntity: Credit::class, mappedBy: 'client', orphanRemoval: true)]
+    private PersistentCollection $credits;
 
     #[ORM\Column(length: 32, nullable: false)]
     private string $ssn;
@@ -199,18 +206,39 @@ final class Client
     }
 
     /**
-     * @return \App\Address\Entity\Address
+     * @return Address
      */
-    public function getAddress(): \App\Address\Entity\Address
+    public function getAddress(): Address
     {
         return $this->address;
     }
 
     /**
-     * @param \App\Address\Entity\Address $address
+     * @param Address $address
      */
-    public function setAddress(\App\Address\Entity\Address $address): void
+    public function setAddress(Address $address): void
     {
         $this->address = $address;
+    }
+
+    /**
+     * @return PersistentCollection
+     */
+    public function getCredits(): PersistentCollection
+    {
+        return $this->credits;
+    }
+
+    /**
+     * @param PersistentCollection $credits
+     */
+    public function setCredits(PersistentCollection $credits): void
+    {
+        $this->credits = $credits;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name . ' ' . $this->surname . ' (' . $this->address . ')';
     }
 }
