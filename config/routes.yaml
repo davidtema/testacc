@@ -1,3 +1,8 @@
+controllersDefault:
+    resource:
+        path: ../src/Default/Controller/
+        namespace: App\Default\Controller
+    type: attribute
 controllersClient:
     resource:
         path: ../src/Client/Controller/
