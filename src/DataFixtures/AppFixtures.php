@@ -41,7 +41,7 @@ class AppFixtures extends Fixture
 
         $client1 = new Client();
         $client1->setName('Олег');
-        $client1->setSurname('Василье');
+        $client1->setSurname('Васильев');
         $client1->setAddress($town1);
         $client1->setAge(25);
         $client1->setIncome(3000);
