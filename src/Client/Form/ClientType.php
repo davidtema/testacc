@@ -20,37 +20,37 @@ final class ClientType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Имя'
+                'label' => 'Имя',
             ])
             ->add('surname', TextType::class, [
-                'label' => 'Фамилия'
+                'label' => 'Фамилия',
             ])
             ->add('age', TextType::class, [
-                'label' => 'Возраст'
+                'label' => 'Возраст',
             ])
             ->add('address', EntityType::class, [
                 'class' => Address::class,
-                'choice_label' => fn(Address $address) => $address->getZip() . ', ' . $address->getState() . ', ' . $address->getTown(),
+                'choice_label' => fn (Address $address) => $address->getZip().', '.$address->getState().', '.$address->getTown(),
                 'placeholder' => 'Выберите адрес', // опционально
                 'required' => true,
                 'label' => 'Адрес',
             ])
             ->add('income', TextType::class, [
-                'label' => 'Доход в месяц (доллар США)'
+                'label' => 'Доход в месяц (доллар США)',
             ])
             ->add('ssn', TextType::class, [
-                'label' => 'SSN (социальный страховой номер)'
+                'label' => 'SSN (социальный страховой номер)',
             ])
             ->add('fico', IntegerType::class, [
                 'label' => 'FICO (кредитный рейтинг)',
-                'help' => 'Значение от 300 до 850'
+                'help' => 'Значение от 300 до 850',
             ])
             ->add('email')
             ->add('phone', TextType::class, [
-                'label' => 'Телефон'
+                'label' => 'Телефон',
             ])
             ->add('save', SubmitType::class, [
-                'row_attr' => ['class' => 'mt-4']
+                'row_attr' => ['class' => 'mt-4'],
             ]);
     }
 

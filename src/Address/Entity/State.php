@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-
 namespace App\Address\Entity;
 
 final class State
 {
-    const NEW_YORK = 'New York';
-    const CALIFORNIA = 'California';
-    const NEVADA = 'Nevada';
-    const TEXAS = 'Texas';
+    public const NEW_YORK = 'New York';
+    public const CALIFORNIA = 'California';
+    public const NEVADA = 'Nevada';
+    public const TEXAS = 'Texas';
 }

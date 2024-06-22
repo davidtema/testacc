@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Application\Form;
 
-use App\Credit\Service\CreditFetcher;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -26,7 +25,7 @@ final class ApplicationType extends AbstractType
                     '6 месяцев' => 6,
                     '12 месяцев' => 12,
                 ],
-                'label' => 'Длительность'
+                'label' => 'Длительность',
             ])
             ->add('rate', TextType::class, [
                 'label' => 'Процентная ставка',
@@ -38,21 +37,20 @@ final class ApplicationType extends AbstractType
                 'label' => 'Проверить',
                 'attr' => [
                     'class' => 'btn btn-primary',
-                    'style' => 'float: left; margin-right: 15px;'
-                ]
+                    'style' => 'float: left; margin-right: 15px;',
+                ],
             ])
             ->add('apply', SubmitType::class, [
                 'label' => 'Выдать кредит',
                 'attr' => [
                     'class' => 'btn btn-success',
-                ]
+                ],
             ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-
         ]);
     }
 }

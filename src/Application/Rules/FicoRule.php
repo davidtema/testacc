@@ -15,6 +15,7 @@ final class FicoRule extends AbstractRule
     {
         if ($client->getFico() < self::FICO_MIN) {
             $this->decision = new DeclinedDecision('Insufficient FICO.');
+
             return false;
         }
 

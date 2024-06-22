@@ -2,15 +2,14 @@
 
 declare(strict_types=1);
 
-
 namespace App\Address\Entity;
 
 final class Town
 {
-    const NEW_YORK = 'New York';
-    const SAN_FRANCISCO = 'San Francisco';
-    const LAS_VEGAS = 'Las Vegas';
-    const DALLAS = 'Dallas';
+    public const NEW_YORK = 'New York';
+    public const SAN_FRANCISCO = 'San Francisco';
+    public const LAS_VEGAS = 'Las Vegas';
+    public const DALLAS = 'Dallas';
 
     private string $name;
 

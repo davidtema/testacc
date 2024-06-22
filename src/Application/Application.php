@@ -15,7 +15,7 @@ use App\Client\Entity\Client;
 
 final readonly class Application
 {
-    /**@var ApplicationRule[] $rules */
+    /** @var ApplicationRule[] $rules */
     private array $rules;
 
     public function __construct()
@@ -24,7 +24,7 @@ final readonly class Application
             new FicoRule(),
             new IncomeRule(),
             new AgeRule(),
-            new AddressRule()
+            new AddressRule(),
         ];
     }
 

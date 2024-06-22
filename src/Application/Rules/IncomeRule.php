@@ -15,6 +15,7 @@ final class IncomeRule extends AbstractRule
     {
         if ($client->getIncome() < self::INCOME_MIN) {
             $this->decision = new DeclinedDecision('Insufficient income.');
+
             return false;
         }
 

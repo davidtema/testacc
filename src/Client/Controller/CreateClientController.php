@@ -29,6 +29,7 @@ final class CreateClientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $bus->dispatch(new CreateClientCommand($client));
             $this->addFlash('success', 'Сохранено');
+
             return $this->redirectToRoute('client.default');
         }
 

@@ -42,9 +42,10 @@ final class CreditController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $decision = $this->application->canClientGetCredit($client);
             if ($form->get('apply')->isClicked()) {
-                if ($decision->getStatus() !== Status::DECLINED) {
+                if (Status::DECLINED !== $decision->getStatus()) {
                     $bus->dispatch(new CreateCreditCommand($credit, $client, $decision));
                     $this->addFlash('success', 'Сохранено');
+
                     return $this->redirectToRoute('client.default');
                 }
             }

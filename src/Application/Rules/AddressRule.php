@@ -14,7 +14,7 @@ final class AddressRule extends AbstractRule
     public const STATE_ALLOW = [
         State::CALIFORNIA,
         State::NEW_YORK,
-        State::NEVADA
+        State::NEVADA,
     ];
     public const CALIFORNIA_RATE = 11.49;
 
@@ -22,21 +22,24 @@ final class AddressRule extends AbstractRule
     {
         if (!in_array($client->getAddress()->getState(), self::STATE_ALLOW)) {
             $this->decision = new DeclinedDecision("You can't get a loan in this state.");
+
             return false;
         }
 
-        if ($client->getAddress()->getState() === State::NEW_YORK) {
-            if (mt_rand(0, 1) === 0) {
+        if (State::NEW_YORK === $client->getAddress()->getState()) {
+            if (0 === mt_rand(0, 1)) {
                 $this->decision = new DeclinedDecision("You can't get a loan in this state.");
+
                 return false;
             }
         }
 
-        if ($client->getAddress()->getState() === State::CALIFORNIA) {
+        if (State::CALIFORNIA === $client->getAddress()->getState()) {
             $this->decision = new ApprovedDecisionWithRiseRate(
                 'The loan was approved with an increase in the rate.',
                 self::CALIFORNIA_RATE
             );
+
             return false;
         }
 

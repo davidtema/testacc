@@ -31,6 +31,7 @@ final class UpdateClientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $bus->dispatch(new UpdateClientCommand($client));
             $this->addFlash('success', 'Сохранено');
+
             return $this->redirectToRoute('client.default');
         }
 

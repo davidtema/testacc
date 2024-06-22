@@ -48,97 +48,61 @@ final class Credit
         return $credit;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return int
-     */
     public function getTerm(): int
     {
         return $this->term;
     }
 
-    /**
-     * @return float
-     */
     public function getRate(): float
     {
         return $this->rate;
     }
 
-    /**
-     * @return float
-     */
     public function getSum(): float
     {
         return $this->sum;
     }
 
-    /**
-     * @param int $id
-     */
     public function setId(int $id): void
     {
         $this->id = $id;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @param int $term
-     */
     public function setTerm(int $term): void
     {
         $this->term = $term;
     }
 
-    /**
-     * @param float $rate
-     */
     public function setRate(float $rate): void
     {
         $this->rate = $rate;
     }
 
-    /**
-     * @param float $sum
-     */
     public function setSum(float $sum): void
     {
         $this->sum = $sum;
     }
 
-    /**
-     * @return Client
-     */
     public function getClient(): Client
     {
         return $this->client;
     }
 
-    /**
-     * @param Client $client
-     */
     public function setClient(Client $client): void
     {
         $this->client = $client;
@@ -146,6 +110,6 @@ final class Credit
 
     public function __toString(): string
     {
-        return $this->name . ' (ставка: ' . $this->rate . '%)';
+        return $this->name.' (ставка: '.$this->rate.'%)';
     }
 }

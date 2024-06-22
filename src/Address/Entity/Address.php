@@ -10,17 +10,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Address
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: "AUTO")]
-    #[ORM\Column(type: "integer")]
+    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    #[ORM\Column(type: 'integer')]
     private int $id;
 
-    #[ORM\Column(type: "string", length: 10)]
+    #[ORM\Column(type: 'string', length: 10)]
     private string $zip;
 
-    #[ORM\Column(type: "string", length: 255)]
+    #[ORM\Column(type: 'string', length: 255)]
     private string $state;
 
-    #[ORM\Column(type: "string", length: 255)]
+    #[ORM\Column(type: 'string', length: 255)]
     private string $town;
 
     public function setId(int $id): void
@@ -71,7 +71,6 @@ class Address
 
     public function __toString(): string
     {
-        return $this->zip . ', ' . $this->town . ', ' . $this->state;
+        return $this->zip.', '.$this->town.', '.$this->state;
     }
 }
-

@@ -7,7 +7,6 @@ namespace App\Client\Entity;
 use App\Address\Entity\Address;
 use App\Client\Repository\ClientRepository;
 use App\Credit\Entity\Credit;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -61,177 +60,111 @@ final class Client
     #[ORM\Column(length: 50, nullable: false)]
     private string $phone;
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
     public function getSurname(): string
     {
         return $this->surname;
     }
 
-    /**
-     * @param string $surname
-     */
     public function setSurname(string $surname): void
     {
         $this->surname = $surname;
     }
 
-    /**
-     * @return int
-     */
     public function getAge(): int
     {
         return $this->age;
     }
 
-    /**
-     * @param int $age
-     */
     public function setAge(int $age): void
     {
         $this->age = $age;
     }
 
-    /**
-     * @return string
-     */
     public function getSsn(): string
     {
         return $this->ssn;
     }
 
-    /**
-     * @param string $ssn
-     */
     public function setSsn(string $ssn): void
     {
         $this->ssn = $ssn;
     }
 
-    /**
-     * @return string
-     */
     public function getFico(): string
     {
         return $this->fico;
     }
 
-    /**
-     * @param string $fico
-     */
     public function setFico(string $fico): void
     {
         $this->fico = $fico;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
     public function setEmail(string $email): void
     {
         $this->email = $email;
     }
 
-    /**
-     * @return string
-     */
     public function getPhone(): string
     {
         return $this->phone;
     }
 
-    /**
-     * @param string $phone
-     */
     public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
     public function setId(int $id): void
     {
         $this->id = $id;
     }
 
-    /**
-     * @return int
-     */
     public function getIncome(): int
     {
         return $this->income;
     }
 
-    /**
-     * @param int $income
-     */
     public function setIncome(int $income): void
     {
         $this->income = $income;
     }
 
-    /**
-     * @return Address
-     */
     public function getAddress(): Address
     {
         return $this->address;
     }
 
-    /**
-     * @param Address $address
-     */
     public function setAddress(Address $address): void
     {
         $this->address = $address;
     }
 
-    /**
-     * @return PersistentCollection
-     */
     public function getCredits(): PersistentCollection
     {
         return $this->credits;
     }
 
-    /**
-     * @param PersistentCollection $credits
-     */
     public function setCredits(PersistentCollection $credits): void
     {
         $this->credits = $credits;
@@ -239,6 +172,6 @@ final class Client
 
     public function __toString(): string
     {
-        return $this->name . ' ' . $this->surname . ' (' . $this->address . ')';
+        return $this->name.' '.$this->surname.' ('.$this->address.')';
     }
 }

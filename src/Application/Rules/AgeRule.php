@@ -14,9 +14,10 @@ final class AgeRule extends AbstractRule
 
     public function test(Client $client): bool
     {
-        if ($client->getAge() < self::AGE_MIN ||
-            $client->getAge() > self::AGE_MAX) {
+        if ($client->getAge() < self::AGE_MIN
+            || $client->getAge() > self::AGE_MAX) {
             $this->decision = new DeclinedDecision('Age discrepancy.');
+
             return false;
         }
 

@@ -19,8 +19,9 @@ final class DefaultController extends AbstractController
     #[Route('client', name: 'client.default')]
     public function default(): Response
     {
-        /**@var Client[] $clients */
+        /** @var Client[] $clients */
         $clients = $this->clientRepository->findAll();
+
         return $this->render('client/default.html.twig', [
             'clients' => $clients,
         ]);

@@ -6,5 +6,4 @@ namespace App\Address\Entity;
 
 final class Zip
 {
-
 }
