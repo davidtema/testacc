@@ -14,7 +14,7 @@ final class ApprovedDecisionWithRiseRate extends DecisionAbstract
     {
         parent::__construct($message);
         $this->rate = $rate;
-        $this->status = Status::AGREE_CHANGE_RATE;
+        $this->status = Status::APPROVED_CHANGE_RATE;
     }
 
     public function getRate(): float

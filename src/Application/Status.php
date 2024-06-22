@@ -10,5 +10,5 @@ enum Status
 
     case APPROVED;
 
-    case AGREE_CHANGE_RATE;
+    case APPROVED_CHANGE_RATE;
 }
