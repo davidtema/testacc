@@ -11,7 +11,11 @@ https://localhost/client - Клиенты (создание клеиньа, вы
 На создание кредита подписан App\Client\EventListener\CreditCreatedEventListener,
 который по нереализованной логике должен добавить в очередь уведомление клиента.
 
-## Инструкция по запуску
+## Тестирование
+
+`php bin/phpunit`
+
+## Docker
 
 `docker compose build --no-cache`
 
