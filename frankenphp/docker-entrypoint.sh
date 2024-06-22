@@ -51,6 +51,13 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 		if [ "$( find ./migrations -iname '*.php' -print -quit )" ]; then
 			php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
 		fi
+
+		make restart
+
+		# Добавление загрузки фикстур
+		if [ "$( find ./src/DataFixtures -iname '*.php' -print -quit )" ]; then
+			php bin/console doctrine:fixtures:load --no-interaction
+		fi
 	fi
 
 	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var
